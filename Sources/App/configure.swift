@@ -1,5 +1,6 @@
 import FluentSQLite
 import Vapor
+import Leaf
 
 /// Called before your application initializes.
 ///
@@ -33,6 +34,9 @@ public func configure(
         /// Create an in-memory SQLite database
         sqlite = try SQLiteDatabase(storage: .memory)
     }
+
+    // Register Leaf templating
+    try services.register(LeafProvider())
 
     /// Register the configured SQLite database to the database config.
     var databases = DatabaseConfig()

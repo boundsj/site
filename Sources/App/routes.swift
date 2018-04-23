@@ -1,13 +1,15 @@
 import Routing
 import Vapor
+import Leaf
 
 /// Register your application's routes here.
 ///
 /// [Learn More →](https://docs.vapor.codes/3.0/getting-started/structure/#routesswift)
 public func routes(_ router: Router) throws {
-    // Basic "Hello, world!" example
-    router.get("hello") { req in
-        return "Hello, world!"
+    router.get { req -> Future<View> in
+        let leaf = try req.make(LeafRenderer.self)
+        let context = [String: String]()
+        return try leaf.render("index", context)
     }
 
     // Example of configuring a controller
