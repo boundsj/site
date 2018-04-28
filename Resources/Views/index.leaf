@@ -31,7 +31,11 @@
                 and more! I specialize in iOS development using Swift, Objective-C, Xcode and the like.
                 I'm always happy to chat about iOS app development and projects I'm working on. 
                 Please <a href="https://twitter.com/boundsj">say hi</a>!
-            </p>            
+            </p>
+            <p class="intro-detail">
+                This site is my first foray into server side Swift development with the 
+                <a href="http://vapor.codes">Vapor</a> framework! 🤓
+            </p>                        
         </div>
 
         <script src="js/vendor/modernizr-3.5.0.min.js"></script>
