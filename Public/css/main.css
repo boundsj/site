@@ -98,20 +98,20 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+#main {
+    padding: 2em;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.intro {
+    font-weight: bold;
+    font-size: 2em;
+}
+.intro-detail {
+    font-weight: light;
+    font-size: 1.5em;
+    line-height: 1.3em;
+    max-width: 50vw;
+}
 
 
 /* ==========================================================================
