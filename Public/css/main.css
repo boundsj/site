@@ -98,6 +98,22 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+body {
+    background-color: #FFF;
+}
+body.dark-mode {
+    background-color: #000;
+}
+.dark-mode label {
+    color: white;
+}
+.dark-mode p {
+    color: gray;
+}
+.dark-mode a {
+    color: lightblue;
+}
+
 #main {
     padding: 2em;
 }
@@ -106,6 +122,7 @@ textarea {
     font-weight: bold;
     font-size: 2em;
 }
+
 .intro-detail {
     font-weight: light;
     font-size: 1.5em;

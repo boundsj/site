@@ -30,6 +30,7 @@
         <![endif]-->
 
         <div id="main">
+            <label for="mode"><input id="mode" type="checkbox"> Dark Mode</label>
             <p class="intro">👋 I'm Jesse</p>
             <p class="intro-detail">
                 I'm a <a href="https://www.linkedin.com/in/jessebounds">software developer</a>. 
