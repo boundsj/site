@@ -17,7 +17,7 @@ public func routes(_ router: Router) throws {
     router.get("posts") { req -> Future<View> in
         let leaf = try req.make(LeafRenderer.self)
         let dir = workingDir()
-        let location = NSString(string: "\(dir)/Posts/test.md").expandingTildeInPath
+        let location = "\(dir)/Posts/20180701_hello_world.md"
         let fileContent = try! String(contentsOfFile: location)
         let context = ["md": try markdownToHTML(fileContent)]
         return leaf.render("md", context)
