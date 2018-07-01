@@ -14,10 +14,12 @@ public func routes(_ router: Router) throws {
         return leaf.render("index", context)
     }
 
-    router.get("md") { req -> Future<View> in
+    router.get("posts") { req -> Future<View> in
         let leaf = try req.make(LeafRenderer.self)
-        let test_md = "# Hello"
-        let context = ["md": try markdownToHTML(test_md)]
+        let dir = FileManager.workingDir()
+        let location = NSString(string: "\(dir)/Posts/test.md").expandingTildeInPath
+        let fileContent = try! String(contentsOfFile: location)
+        let context = ["md": try markdownToHTML(fileContent)]
         return leaf.render("md", context)
     }
 }
