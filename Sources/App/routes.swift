@@ -8,6 +8,10 @@ import SwiftMarkdown
 /// [Learn More →](https://docs.vapor.codes/3.0/getting-started/structure/#routesswift)
 public func routes(_ router: Router) throws {
 
+    var allPosts = [String]()
+    var postsByDate = [String: String]()
+    var postPathByTitle = [String: String]()
+
     router.get("/") { req -> Future<View> in
         let leaf = try req.make(LeafRenderer.self)
         let context = [String: String]()
@@ -15,12 +19,36 @@ public func routes(_ router: Router) throws {
     }
 
     router.get("posts") { req -> Future<View> in
+        if allPosts.count == 0 {
+            let dir = workingDir()
+            let path = "\(dir)/Posts/"
+            let enumerator = FileManager.default.enumerator(atPath: path)
+            while let element = enumerator?.nextObject() as? String {
+                let dateString = String(element.prefix(8))
+                let elementWithNoDateString = element.replacingOccurrences(of: "\(dateString)_", with: "")
+                let elementWithNoExtension = elementWithNoDateString.replacingOccurrences(of: ".md", with: "")
+                let components = elementWithNoExtension.components(separatedBy: "_")
+                let postTitle = components.joined(separator: " ")
+                allPosts.append(postTitle)
+                postsByDate[dateString] = postTitle
+                postPathByTitle[postTitle] = element
+            }
+        }
+        let context = ["posts": allPosts]
+        let leaf = try req.make(LeafRenderer.self)
+        return leaf.render("posts", context)
+    }
+
+    router.get("posts", String.parameter) { req -> Future<View> in
+        let param = try req.parameters.next(String.self)
+        let unescapedParam = param.removingPercentEncoding! // TODO: Fix this
+        let postPath = postPathByTitle[unescapedParam]! // TODO: Fix this
         let leaf = try req.make(LeafRenderer.self)
         let dir = workingDir()
-        let location = "\(dir)/Posts/20180701_hello_world.md"
+        let location = "\(dir)/Posts/\(postPath)"
         let fileContent = try! String(contentsOfFile: location)
-        let context = ["md": try markdownToHTML(fileContent)]
-        return leaf.render("md", context)
+        let context = ["post": try markdownToHTML(fileContent)]
+        return leaf.render("post", context)
     }
 }
 

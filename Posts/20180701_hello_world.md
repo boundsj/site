@@ -8,4 +8,4 @@ This is only a test. Using markdown. Still need to do some things like:
 2. Make a front matter system
 3. Actually write a first post!
 
-![Image](https://farm9.staticflickr.com/8381/8588523690_5e8b682bfa_m.jpg)
+![Image](http://hattershostels.com/wp-content/uploads/2014/12/41550-show-94445.jpg)

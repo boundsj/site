@@ -1,0 +1,5 @@
+<body>
+#for(post in posts) {
+<p><a href="/posts/#(post)">#(post)</a></p>
+}
+</body>
