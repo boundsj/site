@@ -1,7 +1,7 @@
 #set("body") {
-<hr>
+<div id="main">
 #get(post)
-<hr>
+</div>
 }
 
 #embed("master")

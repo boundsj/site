@@ -1,8 +1,10 @@
 #set("title") { Posts }
 #set("body") {
+    <div id="main">
     #for(post in posts) {
     <p><a href="/posts/#(post.link)">#(post.title)</a></p>
     }
+    </div>
 }
 
 #embed("master")
