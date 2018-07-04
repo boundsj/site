@@ -31,8 +31,13 @@ public func routes(_ router: Router) throws {
 
     router.get("posts", String.parameter) { req -> Future<View> in
         let param = try req.parameters.next(String.self)
-        let postPath = postPathByTitle[param]! // TODO: Fix this
         let leaf = try req.make(LeafRenderer.self)
+
+        guard let postPath = postPathByTitle[param] else {
+            let context = [String]()
+            return leaf.render("error", context)
+        }
+
         let dir = workingDir()
         let location = "\(dir)/Posts/\(postPath)"
         let fileContent = try! String(contentsOfFile: location)

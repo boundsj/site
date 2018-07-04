@@ -1,0 +1,5 @@
+#set("body") {
+That's an error!
+}
+
+#embed("master")
