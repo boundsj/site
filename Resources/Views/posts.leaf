@@ -1,7 +1,7 @@
 #set("title") { Posts }
 #set("body") {
     #for(post in posts) {
-    <p><a href="/posts/#(post)">#(post)</a></p>
+    <p><a href="/posts/#(post.link)">#(post.title)</a></p>
     }
 }
 
