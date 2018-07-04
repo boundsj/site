@@ -8,10 +8,6 @@ import SwiftMarkdown
 /// [Learn More →](https://docs.vapor.codes/3.0/getting-started/structure/#routesswift)
 public func routes(_ router: Router) throws {
 
-    var allPosts = [String]()
-    var postsByDate = [String: String]()
-    var postPathByTitle = [String: String]()
-
     router.get("/") { req -> Future<View> in
         let leaf = try req.make(LeafRenderer.self)
         let context: [String: String] = ["title": "I'm Jesse"]
@@ -19,21 +15,6 @@ public func routes(_ router: Router) throws {
     }
 
     router.get("posts") { req -> Future<View> in
-        if allPosts.count == 0 {
-            let dir = workingDir()
-            let path = "\(dir)/Posts/"
-            let enumerator = FileManager.default.enumerator(atPath: path)
-            while let element = enumerator?.nextObject() as? String {
-                let dateString = String(element.prefix(8))
-                let elementWithNoDateString = element.replacingOccurrences(of: "\(dateString)_", with: "")
-                let elementWithNoExtension = elementWithNoDateString.replacingOccurrences(of: ".md", with: "")
-                let components = elementWithNoExtension.components(separatedBy: "_")
-                let postTitle = components.joined(separator: " ")
-                allPosts.append(postTitle)
-                postsByDate[dateString] = postTitle
-                postPathByTitle[postTitle] = element
-            }
-        }
         let context: [String: [String]] = ["posts": allPosts]
         let leaf = try req.make(LeafRenderer.self)
         return leaf.render("posts", context)
