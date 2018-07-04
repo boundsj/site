@@ -1,57 +1,22 @@
-<!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <!-- Global Site Tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-36424775-3"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'UA-36424775-3');
-        </script>
+#set("body") {
+<div id="main">
+    <label for="mode"><input id="mode" type="checkbox"> Dark Mode</label>
+    <p class="intro">👋 I'm Jesse</p>
+    <p class="intro-detail">
+        I'm a <a href="https://www.linkedin.com/in/jessebounds">software developer</a>. 
+    </p>
+    <p class="intro-detail">
+        I currently work at <a href="https://slack.com">Slack</a> and was previously at 
+        <a href="https://mapbox.com">Mapbox</a>, <a href="https://pivotal.io/labs">Pivotal Labs</a>, 
+        and more! I specialize in iOS development using Swift, Objective-C, Xcode, and the like.
+        I'm always happy to chat about iOS app development and <a href="https://github.com/boundsj">projects</a> 
+        I'm working on. Please <a href="https://twitter.com/boundsj">say hi</a>!
+    </p>
+    <p class="intro-detail">
+        This site is my first foray into server side Swift development with the 
+        <a href="http://vapor.codes">Vapor</a> framework! 🤓
+    </p>                        
+</div>
+}
 
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>I'm Jesse</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="manifest" href="site.webmanifest">
-        <link rel="apple-touch-icon" href="icon.png">
-        <!-- Place favicon.ico in the root directory -->
-
-        <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/normalize.css">
-    </head>
-    <body>
-        <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
-
-        <div id="main">
-            <label for="mode"><input id="mode" type="checkbox"> Dark Mode</label>
-            <p class="intro">👋 I'm Jesse</p>
-            <p class="intro-detail">
-                I'm a <a href="https://www.linkedin.com/in/jessebounds">software developer</a>. 
-            </p>
-            <p class="intro-detail">
-                I currently work at <a href="https://slack.com">Slack</a> and was previously at 
-                <a href="https://mapbox.com">Mapbox</a>, <a href="https://pivotal.io/labs">Pivotal Labs</a>, 
-                and more! I specialize in iOS development using Swift, Objective-C, Xcode, and the like.
-                I'm always happy to chat about iOS app development and <a href="https://github.com/boundsj">projects</a> 
-                I'm working on. Please <a href="https://twitter.com/boundsj">say hi</a>!
-            </p>
-            <p class="intro-detail">
-                This site is my first foray into server side Swift development with the 
-                <a href="http://vapor.codes">Vapor</a> framework! 🤓
-            </p>                        
-        </div>
-
-        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-    </body>
-</html>
+#embed("master")

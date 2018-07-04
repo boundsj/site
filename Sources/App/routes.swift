@@ -14,7 +14,7 @@ public func routes(_ router: Router) throws {
 
     router.get("/") { req -> Future<View> in
         let leaf = try req.make(LeafRenderer.self)
-        let context = [String: String]()
+        let context: [String: String] = ["title": "I'm Jesse"]
         return leaf.render("index", context)
     }
 
@@ -34,7 +34,7 @@ public func routes(_ router: Router) throws {
                 postPathByTitle[postTitle] = element
             }
         }
-        let context = ["posts": allPosts]
+        let context: [String: [String]] = ["posts": allPosts]
         let leaf = try req.make(LeafRenderer.self)
         return leaf.render("posts", context)
     }
@@ -47,7 +47,7 @@ public func routes(_ router: Router) throws {
         let dir = workingDir()
         let location = "\(dir)/Posts/\(postPath)"
         let fileContent = try! String(contentsOfFile: location)
-        let context = ["post": try markdownToHTML(fileContent)]
+        let context: [String: String] = ["post": try markdownToHTML(fileContent), "title": unescapedParam]
         return leaf.render("post", context)
     }
 }

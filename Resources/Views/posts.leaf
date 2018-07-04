@@ -1,5 +1,8 @@
-<body>
-#for(post in posts) {
-<p><a href="/posts/#(post)">#(post)</a></p>
+#set("title") { Posts }
+#set("body") {
+    #for(post in posts) {
+    <p><a href="/posts/#(post)">#(post)</a></p>
+    }
 }
-</body>
+
+#embed("master")
