@@ -1,22 +1,12 @@
+#set("title") { Posts }
 #set("body") {
-<div id="main">
-    <label for="mode"><input id="mode" type="checkbox"> Dark Mode</label>
-    <p class="intro">👋 I'm Jesse</p>
-    <p class="intro-detail">
-        I'm a <a href="https://www.linkedin.com/in/jessebounds">software developer</a>. 
-    </p>
-    <p class="intro-detail">
-        I currently work at <a href="https://slack.com">Slack</a> and was previously at 
-        <a href="https://mapbox.com">Mapbox</a>, <a href="https://pivotal.io/labs">Pivotal Labs</a>, 
-        and more! I specialize in iOS development using Swift, Objective-C, Xcode, and the like.
-        I'm always happy to chat about iOS app development and <a href="https://github.com/boundsj">projects</a> 
-        I'm working on. Please <a href="https://twitter.com/boundsj">say hi</a>!
-    </p>
-    <p class="intro-detail">
-        This site is my first foray into server side Swift development with the 
-        <a href="http://vapor.codes">Vapor</a> framework! 🤓
-    </p>                        
-</div>
+    <div id="main">
+    <div class="posts">
+    #for(post in posts) {
+    <p><a href="/posts/#(post.link)">#(post.title)</a></p>
+    }
+    </div>
+    </div>
 }
 
 #embed("master")

@@ -14,19 +14,13 @@ struct Post: Codable {
 public func routes(_ router: Router) throws {
 
     router.get("/") { req -> Future<View> in
-        let leaf = try req.make(LeafRenderer.self)
-        let context: [String: String] = ["title": "I'm Jesse"]
-        return leaf.render("index", context)
-    }
-
-    router.get("posts") { req -> Future<View> in
         var posts = [Post]()
         for (spaced, dashed) in allPostsZipped {
             let post = Post(title: spaced, link: dashed)
             posts.append(post)
         }
         let leaf = try req.make(LeafRenderer.self)
-        return leaf.render("posts", ["posts": posts])
+        return leaf.render("index", ["posts": posts])
     }
 
     router.get("posts", String.parameter) { req -> Future<View> in
