@@ -35,7 +35,8 @@ public func routes(_ router: Router) throws {
         let dir = workingDir()
         let location = "\(dir)/Posts/\(postPath)"
         let fileContent = try! String(contentsOfFile: location)
-        let context: [String: String] = ["post": try markdownToHTML(fileContent), "title": param]
+        let title = postTitleByDashedTitle[param] ?? param
+        let context: [String: String] = ["post": try markdownToHTML(fileContent), "title": title]
         return leaf.render("post", context)
     }
 }

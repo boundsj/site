@@ -6,6 +6,7 @@ var allPostsSpaced = [String]()
 var allPostsZipped = [(String, String)]()
 var postsByDate = [String: String]()
 var postPathByTitle = [String: String]()
+var postTitleByDashedTitle = [String: String]()
 
 /// Called after your application has initialized.
 ///
@@ -15,18 +16,22 @@ public func boot(_ app: Application) throws {
         let dir = workingDir()
         let path = "\(dir)/Posts/"
         let enumerator = FileManager.default.enumerator(atPath: path)
+
         while let element = enumerator?.nextObject() as? String {
             let dateString = String(element.prefix(8))
             let elementWithNoDateString = element.replacingOccurrences(of: "\(dateString)_", with: "")
             let elementWithNoExtension = elementWithNoDateString.replacingOccurrences(of: ".md", with: "")
             let components = elementWithNoExtension.components(separatedBy: "_")
             let postTitleSpaced = components.joined(separator: " ")
-            let postTitleDashed = components.joined(separator: "-")
+            let postTitleDashed = components.map { $0.lowercased() }.joined(separator: "-")
+
             allPostsDashed.append(postTitleDashed)
             allPostsSpaced.append(postTitleSpaced)
             postsByDate[dateString] = postTitleDashed
             postPathByTitle[postTitleDashed] = element
+            postTitleByDashedTitle[postTitleDashed] = postTitleSpaced
         }
+
         allPostsZipped = Array(zip(allPostsSpaced, allPostsDashed))
     }
 }

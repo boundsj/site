@@ -1,7 +1,7 @@
 #set("body") {
-<div id="main">
-#get(post)
-</div>
+    <div id="main">
+    #get(post)
+    </div>
 }
 
 #embed("master")

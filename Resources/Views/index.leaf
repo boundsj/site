@@ -1,11 +1,11 @@
-#set("title") { Posts }
+#set("title") { Jesse Bounds }
 #set("body") {
     <div id="main">
-    <div class="posts">
-    #for(post in posts) {
-    <p><a href="/posts/#(post.link)">#(post.title)</a></p>
-    }
-    </div>
+        <div class="posts">
+        #for(post in posts) {
+            <p><a href="/posts/#(post.link)">#(post.title)</a></p>
+        }
+        </div>
     </div>
 }
 
