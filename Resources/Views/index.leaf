@@ -3,7 +3,10 @@
     <div id="main">
         <div class="posts">
         #for(post in posts) {
-            <p><a href="/posts/#(post.link)">#(post.title)</a></p>
+            <div class="post">
+                <p><a href="/posts/#(post.link)">#(post.title)</a></p>
+                <p>#(post.summary)</p>
+            </div>
         }
         </div>
     </div>

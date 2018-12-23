@@ -126,9 +126,17 @@ body a {
     margin-right: auto;
 }
 .posts {
-    width: 50%;
+    width: 60%;
+    min-width: 300px;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto;    
+}
+.posts a {
+    font-weight: light;
+    font-size: 1.2em;
+}
+.posts .post {
+    padding-bottom: 12px;
 }
 #main {
     padding: 2em;

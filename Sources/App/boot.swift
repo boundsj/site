@@ -8,6 +8,8 @@ var postsByDate = [String: String]()
 var postPathByTitle = [String: String]()
 var postTitleByDashedTitle = [String: String]()
 
+var frontMatterByDashedTitle = [String: FrontMatter]()
+
 /// Called after your application has initialized.
 ///
 /// [Learn More →](https://docs.vapor.codes/3.0/getting-started/structure/#bootswift)
@@ -30,6 +32,11 @@ public func boot(_ app: Application) throws {
             postsByDate[dateString] = postTitleDashed
             postPathByTitle[postTitleDashed] = element
             postTitleByDashedTitle[postTitleDashed] = postTitleSpaced
+
+            let location = "\(dir)/Posts/\(element)"
+            let fileContent = try! String(contentsOfFile: location)
+            let frontmatter = FrontMatterUtils.extract(from: fileContent)
+            frontMatterByDashedTitle[postTitleDashed] = frontmatter
         }
 
         allPostsZipped = Array(zip(allPostsSpaced, allPostsDashed))

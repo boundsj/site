@@ -6,6 +6,7 @@ import SwiftMarkdown
 struct Post: Codable {
     var title: String
     var link: String
+    var summary: String?
 }
 
 /// Register your application's routes here.
@@ -16,7 +17,10 @@ public func routes(_ router: Router) throws {
     router.get("/") { req -> Future<View> in
         var posts = [Post]()
         for (spaced, dashed) in allPostsZipped {
-            let post = Post(title: spaced, link: dashed)
+            let frontMatter = frontMatterByDashedTitle[dashed]!
+            let post = Post(title: spaced,
+                            link: dashed,
+                            summary: frontMatter.summary)
             posts.append(post)
         }
         let leaf = try req.make(LeafRenderer.self)
