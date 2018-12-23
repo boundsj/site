@@ -20,12 +20,18 @@ class FrontMatterUtilsTests: XCTestCase {
 
     func testProcessFrontMatter() {
         let rawPost1 = """
+            ---
+            title: Hello world
+            ---
+
             # Hello world
             The rest of the post.
             """
 
         var result = FrontMatterUtils.extract(from: rawPost1)
-        XCTAssert(result.title == nil)
+        XCTAssert(result.title == "Hello world")
+        XCTAssert(result.content == "# Hello world\nThe rest of the post.")
+        XCTAssert(result.link == "hello-world")
 
         let rawPost2 = """
             ---
