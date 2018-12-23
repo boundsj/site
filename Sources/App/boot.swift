@@ -18,17 +18,28 @@ public func boot(_ app: Application) throws {
         let location = "\(dir)/Posts/\(element)"
         let fileContent = try! String(contentsOfFile: location)
         let frontMatter = FrontMatterUtils.extract(from: fileContent)
-        let post = Post(title: frontMatter.title,
-                        link: frontMatter.link,
+
+        guard let title = frontMatter.title,
+              let link = frontMatter.link,
+              let date = frontMatter.date,
+              let content = frontMatter.content else {
+                print("Could not load post: \(element)")
+                continue
+              }
+
+        let post = Post(title: title,
+                        link: link,
                         summary: frontMatter.summary,
-                        content: frontMatter.content)
-        allPostsByLink[frontMatter.link!] = post
+                        content: content,
+                        date: date)
+        allPostsByLink[link] = post
         allPosts.append(post)
+        allPosts = allPosts.sorted(by:  { $0.date > $1.date })
     }
 
 }
 
-public func workingDir() -> String {
+func workingDir() -> String {
     let fileBasedWorkDir: String?
 
     #if Xcode

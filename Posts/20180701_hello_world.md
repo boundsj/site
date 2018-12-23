@@ -1,7 +1,7 @@
 ---
 title: Hello world
-date: 2018-12-16 08:48:00
-summary: This is a totally new post!
+date: 2018-07-01 08:48:00
+summary: This is the first post!
 ---
 
 # Hello world

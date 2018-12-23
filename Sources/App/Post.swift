@@ -8,8 +8,9 @@
 import Foundation
 
 struct Post: Codable {
-    var title: String?
-    var link: String?
+    var title: String
+    var link: String
     var summary: String?
-    var content: String?
+    var content: String
+    var date: Date
 }
