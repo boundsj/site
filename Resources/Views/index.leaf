@@ -6,6 +6,7 @@
             <div class="post">
                 <p><a href="/posts/#(post.link)">#(post.title)</a></p>
                 <p>#(post.summary)</p>
+                <p>#(post.formattedDate)</p>
             </div>
         }
         </div>

@@ -22,7 +22,8 @@ public func routes(_ router: Router) throws {
             return leaf.render("error", context)
         }
 
-        let context: [String: String] = ["post": try markdownToHTML(post.content), "title": post.title]
+        let context: [String: String] = ["post": try markdownToHTML(post.content),
+                                         "title": post.title]
         return leaf.render("post", context)
     }
 }
