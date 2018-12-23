@@ -26,11 +26,12 @@
             <figure class="avatar">
                 <a href="/"><img src="/images/wiimoji.png" alt="it me"></a>
             </figure>
-            <h1 class"site-name">
-                👋 I'm Jesse
-            </h1>
+            <h1 class"site-name">📍Jesse Bounds</h1>
+            <!--
+            // TODO: Add about and archive 
             <a href="/about/">About</a>
             <a href="/archive/">Archive</a>
+            -->
         </div>
         #get(body)
         <script src="/js/vendor/modernizr-3.5.0.min.js"></script>
