@@ -14,4 +14,4 @@ This is only a test. Using markdown. Still need to do some things like:
 2. Make a front matter system
 3. Actually write a first post!
 
-![Image](https://hattershostels.com/wp-content/uploads/2014/12/41550-show-94445.jpg)
+![Image](https://farm5.staticflickr.com/4883/31463116437_b41536b661_n.jpg)
