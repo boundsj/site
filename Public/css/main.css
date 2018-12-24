@@ -100,12 +100,32 @@ textarea {
 
 body {
     background-color: #f6f6f6;
-    margin-left: 20%;
-    margin-right: 20%;
 }
+
+@media screen and (max-width: 1024px) {
+    body {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    .posts {
+        width: 90%;
+    }
+}
+@media screen and (min-width: 1025px) {
+    body {
+        background-color: #f6f6f6;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+    .posts {
+        width: 60%;
+    }    
+}
+
 body a {
     color: #429CD4;
 }
+
 .header {
     min-width: 200px;
     text-align: center;
@@ -114,7 +134,7 @@ body a {
     margin-right: auto;
 }
 .header a {
-    font-size: 1.3rem;    
+    font-size: 1.3rem;
     padding-top: 10px;
     padding-left: 5px;
     padding-right: 5px; 
@@ -124,19 +144,24 @@ body a {
     max-width: 125px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: -1.1em;    
 }
 .posts {
-    width: 60%;
     min-width: 300px;
     margin-left: auto;
     margin-right: auto;    
 }
 .posts a {
     font-weight: light;
-    font-size: 1.2em;
+    font-size: 1.3em;
 }
 .posts .post {
-    padding-bottom: 12px;
+    font-size: 1.2em;
+    padding-bottom: 2em;
+}
+.post .date {
+    color: #777777;
+    font-size: 0.9em;
 }
 #main {
     padding: 2em;
