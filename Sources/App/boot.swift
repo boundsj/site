@@ -15,6 +15,8 @@ public func boot(_ app: Application) throws {
     let enumerator = FileManager.default.enumerator(atPath: path)
 
     while let element = enumerator?.nextObject() as? String {
+        guard element != ".DS_Store" else { continue }
+
         let location = "\(dir)/Posts/\(element)"
         let fileContent = try! String(contentsOfFile: location)
         let frontMatter = FrontMatterUtils.extract(from: fileContent)
