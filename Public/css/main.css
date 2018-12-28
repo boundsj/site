@@ -102,6 +102,7 @@ body {
     background-color: #f6f6f6;
 }
 body a {
+    text-decoration: none;
     color: #429CD4;
 }
 
@@ -152,7 +153,7 @@ body a {
 }
 .posts a {
     font-weight: light;
-    font-size: 1.3em;
+    font-size: 1.3em;    
 }
 .posts .post {
     font-size: 1.2em;
