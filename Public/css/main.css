@@ -129,7 +129,6 @@ body a {
 .header {
     min-width: 200px;
     text-align: center;
-    width: 50%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -164,8 +163,15 @@ body a {
     font-size: 0.9em;
 }
 #main {
-    padding: 2em;
+    padding: 2em;    
+}
+#main {
+    font-size: 1.1em;
     line-height: 1.75em;
+}
+#main h1 {
+    font-size: 2.15em;
+    line-height: 1.15em;
 }
 #main img {
     display: block;
